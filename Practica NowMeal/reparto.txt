@@ -1,0 +1,96 @@
+	public void addTransporteLocalidad(Transporte transporte) {
+		// obligatorio --> gestoresLocales[0].add(transporte);
+		double coordX = transporte.getMapa().getPosicion(transporte.getCodigo()).getX();
+		double coordY = transporte.getMapa().getPosicion(transporte.getCodigo()).getY();
+
+		if((0 <= coordX && coordX <= mapa.getMaxCoordX()/2)
+				&& (0 <= coordY && coordY <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[0].add(transporte);
+		}
+		else if((0 <= coordX && coordX <= mapa.getMaxCoordX()/2)
+				&& (mapa.getMaxCoordY()/2+1 <= coordY) && coordY <= mapa.getMaxCoordY()){
+			gestoresLocales[1].add(transporte);
+		}
+		else if((mapa.getMaxCoordX()/2+1 <= coordX && coordX <= mapa.getMaxCoordX())
+				&& (0 <= coordY && coordY <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[2].add(transporte);
+		}
+		else{
+			gestoresLocales[3].add(transporte);
+		}
+	}
+		
+	//PRE: el pedido no tiene asignado ningún transporte
+	public void asignarPedido(Pedido pedido){
+		// obligatorio --> gestoresLocales[0].asignarPedido(pedido);
+		// obligatorio --> gestoresLocales[0].add(transporte);
+
+		double coordX = pedido.getRestaurante().getCodigo();
+		double coordY = pedido.getTransporte().getMapa().getPosicion(pedido.getTransporte().getCodigo()).getY();
+
+		if((0 <= coordX && coordX <= mapa.getMaxCoordX()/2)
+				&& (0 <= coordY && coordY <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[0].asignarPedido(pedido);
+		}
+		else if((0 <= coordX && coordX <= mapa.getMaxCoordX()/2)
+				&& (mapa.getMaxCoordY()/2+1 <= coordY) && coordY <= mapa.getMaxCoordY()){
+			gestoresLocales[1].asignarPedido(pedido);
+		}
+		else if((mapa.getMaxCoordX()/2+1 <= coordX && coordX <= mapa.getMaxCoordX())
+				&& (0 <= coordY && coordY <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[2].asignarPedido(pedido);
+		}
+		else{
+			gestoresLocales[3].asignarPedido(pedido);
+		}
+	}
+	
+	//PRE: el pedido tiene asignado un transporte
+	public void notificarEntregaPedido(Pedido pedido){
+		// obligatorio --> gestoresLocales[0].notificarEntregaPedido(pedido);
+		/*double coordX = transporte.getMapa().getPosicion(transporte.getCodigo()).getX();
+		double coordY = transporte.getMapa().getPosicion(transporte.getCodigo()).getY();
+
+		if((0 <= coordX && coordX <= mapa.getMaxCoordX()/2)
+				&& (0 <= coordY && coordY <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[0].add(transporte);
+		}
+		else if((0 <= coordX && coordX <= mapa.getMaxCoordX()/2)
+				&& (mapa.getMaxCoordY()/2+1 <= coordY) && coordY <= mapa.getMaxCoordY()){
+			gestoresLocales[1].add(transporte);
+		}
+		else if((mapa.getMaxCoordX()/2+1 <= coordX && coordX <= mapa.getMaxCoordX())
+				&& (0 <= coordY && coordY <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[2].add(transporte);
+		}
+		else{
+			gestoresLocales[3].add(transporte);
+		}*/
+	}
+
+	/*
+	  Zona 0: X [0, maxCoordX/2] Y [0, maxCoordY/2]
+	  Zona 1: X [0, maxCoordX/2] Y [maxCoordY/2 + 1, maxCoordY]
+	  Zona 2: X [maxCoordX/2 + 1, maxCoordX] Y [0, maxCoordY/2]
+	  Zona 3: X [maxCoordX/2 + 1, maxCoordX] Y [maxCoordY/2 + 1, maxCoordY]
+	 */
+}
+
+
+/*
+if((0 <= transporte.getMapa().getMaxCoordX() && transporte.getMapa().getMaxCoordX() <= mapa.getMaxCoordX()/2)
+				&& (0 <= transporte.getMapa().getMaxCoordY() && transporte.getMapa().getMaxCoordY() <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[0].add(transporte);
+		}
+		else if((0 <= transporte.getMapa().getMaxCoordX() && transporte.getMapa().getMaxCoordX() <= mapa.getMaxCoordX()/2)
+				&& (mapa.getMaxCoordY()/2+1 <= transporte.getMapa().getMaxCoordY() && transporte.getMapa().getMaxCoordY() <= mapa.getMaxCoordY())){
+			gestoresLocales[1].add(transporte);
+		}
+		else if((mapa.getMaxCoordX()/2+1 <= transporte.getMapa().getMaxCoordX() && transporte.getMapa().getMaxCoordX() <= mapa.getMaxCoordX())
+				&& (0 <= transporte.getMapa().getMaxCoordY() && transporte.getMapa().getMaxCoordY() <= mapa.getMaxCoordY()/2)){
+			gestoresLocales[2].add(transporte);
+		}
+		else{
+			gestoresLocales[3].add(transporte);
+		}
+ */

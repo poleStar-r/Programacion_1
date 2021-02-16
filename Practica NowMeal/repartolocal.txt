@@ -1,0 +1,107 @@
+
+
+
+/*
+	public void asignarPedido(Pedido pedido){
+		if(pedido.getPeso() <= PESOMAXMOTO){
+			if(motosDisponibles.get(0) != null) {
+				int i;
+				for (i = 0; i < motosDisponibles.size() && motosDisponibles.get(i) != null; i++) ;
+				pedido.setTransporte(motosDisponibles.get(i-1));
+				motosDisponibles.set(i-1, null);
+			}
+			else{ //No hay motos disponibles
+				pedidosEsperandoMoto.add(pedido);
+			}
+		}
+		else{
+			if(furgonetasDisponibles.get(0) != null){
+				int a;
+				for (a = 0; a < furgonetasDisponibles.size() && furgonetasDisponibles.get(a) != null; a++) ;
+				pedido.setTransporte(furgonetasDisponibles.get(a-1));
+				furgonetasDisponibles.set(a-1, null);
+			}
+			else{
+				pedidosEsperandoFurgoneta.add(pedido);
+			}
+		}
+	}
+ */
+
+
+/*
+	public void asignarPedido(Pedido pedido){
+		if(pedido.getPeso() <= PESOMAXMOTO){
+			int numeroMotos = motosDisponibles.size();
+			double[] precios = new double[numeroMotos];
+			for(int i = numeroMotos; i<motosDisponibles.size() && motosDisponibles.get(i)!= null; i--){
+				precios[i-1] = pedido.coste(motosDisponibles.get(i-1));
+			}
+			precios min = Math.min.apply(null, precios);
+		}
+
+
+
+		else{
+
+		}
+	}
+
+ */
+
+
+/*
+	public void add(Transporte transporte) {
+		if (transporte.getCodigo().charAt(0) == 'M') { //transporte es moto
+			int i;
+			for (i = 0; i < motosDisponibles.size() ; i++); // && motosDisponibles.get(i) != null
+			//Moto transporte1 = new Moto(transporte.getCodigo(), transporte.getMapa());
+			motosDisponibles.add(i, (Moto) transporte);
+		} else { //transporte.getCodigo().charAt(0) == 'F'
+			int a;
+			for (a = 0; a < furgonetasDisponibles.size() ; a++);// && furgonetasDisponibles.get(a) != null
+			furgonetasDisponibles.add(a, (Furgoneta) transporte);
+		}
+	}
+ */
+
+/*
+	public void notificarEntregaPedido(Pedido pedido) {
+		if(pedido.getTransporte().getCodigo().charAt(0) == 'M'){
+			if(pedidosEsperandoMoto.peek() != null){
+				asignarPedido(pedidosEsperandoMoto.poll());
+			}
+			else{
+				add(pedido.getTransporte());
+			}
+		}
+		else{
+			if(pedidosEsperandoFurgoneta.peek() != null){
+				asignarPedido(pedidosEsperandoFurgoneta.poll());
+			}
+			else{
+				add(pedido.getTransporte());
+			}
+		}
+	}
+ */
+
+
+/*
+		if(pedido.getTransporte().getCodigo().charAt(0) == 'M'){
+			if(pedidosEsperandoMoto.peek() != null){
+				asignarPedido(pedidosEsperandoMoto.poll());
+			}
+			else{
+				add(pedido.getTransporte());
+			}
+		}
+		else{
+			if(pedidosEsperandoFurgoneta.peek() != null){
+				asignarPedido(pedidosEsperandoFurgoneta.poll());
+			}
+			else{
+				add(pedido.getTransporte());
+			}
+		}
+ */
